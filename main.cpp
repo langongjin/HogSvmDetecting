@@ -13,17 +13,13 @@ int folder_num;
 HOGDescriptor Hog;
 char filePath[3][200];
 
-Size winSize(112,24), blockSize(16,8),blockStride(16,16),cellSize(8,8),computeSize(8,8);
-//Size winSize(112,24), blockSize(24,24),blockStride(22,24),cellSize(12,12),computeSize(12,12);
+Size winSize(32,64), blockSize(16,16),blockStride(8,8),cellSize(8,8),computeSize(8,8);
 //function of initializing
 void config(){
-    int nbin=6;//orientation bins
+    int nbin=9;//orientation bins
     folder_num=2;//number of folders containing samples 86_0504pm/300_0428_800_600/240_112*24_800_600
     snprintf(filePath[0],150,"/Users/lan/Desktop/Papers/FirstConf/experiments/crop_samples/pos_samples/totestsamples"); //path of folder containing positive samples
-    //snprintf(filePath[0],150,"/Users/lan/Desktop/TarReg/svm/crop_samples/tobecroped/300_0428_800_600/");
     snprintf(filePath[1],150,"/Users/lan/Desktop/Papers/FirstConf/experiments/crop_samples/neg_samples/totestsamples"); //path of folder containing negative samples
-    //snprintf(filePath[2],150,"/Users/lan/Desktop/TarReg/svm/svmrobot/hard_samples/"); // path of folder containing hard and negative samples
-
     HOGDescriptor hog(winSize,blockSize,blockStride,cellSize,nbin);//define(initialize) the parameters of HOG descriptor
     Hog=hog;
 }
